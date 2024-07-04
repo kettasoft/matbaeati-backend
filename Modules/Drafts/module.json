@@ -1,0 +1,11 @@
+{
+    "name": "Drafts",
+    "alias": "drafts",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Drafts\\Providers\\DraftsServiceProvider"
+    ],
+    "files": []
+}

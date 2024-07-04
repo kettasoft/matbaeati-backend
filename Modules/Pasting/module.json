@@ -1,0 +1,11 @@
+{
+    "name": "Pasting",
+    "alias": "pasting",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Pasting\\Providers\\PastingServiceProvider"
+    ],
+    "files": []
+}

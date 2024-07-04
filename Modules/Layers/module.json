@@ -1,0 +1,11 @@
+{
+    "name": "Layers",
+    "alias": "layers",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Layers\\Providers\\LayersServiceProvider"
+    ],
+    "files": []
+}

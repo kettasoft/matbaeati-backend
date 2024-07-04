@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Event;
+use Modules\Accounts\Events\Registered;
+use Modules\Chats\Events\SendMessageEvent;
+use Modules\Accounts\Listeners\AttachWithRoleByAccountTypeListener;
+use Modules\Chats\Listeners\BroadcastingMessageToOtherParty;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -17,7 +20,12 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
+            AttachWithRoleByAccountTypeListener::class
         ],
+
+        SendMessageEvent::class => [
+            BroadcastingMessageToOtherParty::class
+        ]
     ];
 
     /**

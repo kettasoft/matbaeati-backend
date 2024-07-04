@@ -1,0 +1,51 @@
+<?php
+
+namespace Modules\Accounts\Notifications;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\MailMessage;
+
+class EmailVerificationNotification extends Notification
+{
+    use Queueable;
+
+    protected int $code;
+
+    /**
+     * Create a new notification instance.
+     */
+    public function __construct(int $code)
+    {
+        //
+        $this->code = $code;
+    }
+
+    /**
+     * Get the notification's delivery channels.
+     */
+    public function via($notifiable): array
+    {
+        return ['mail'];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     */
+    public function toMail($notifiable): MailMessage
+    {
+        return (new MailMessage)
+            ->line('The introduction to the notification.')
+            ->action('Notification Action', 'https://laravel.com')
+            ->line('Thank you for using our application!');
+    }
+
+    /**
+     * Get the array representation of the notification.
+     */
+    public function toArray($notifiable): array
+    {
+        return [];
+    }
+}

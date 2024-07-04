@@ -1,0 +1,32 @@
+<?php
+
+namespace Modules\Accounts\Database\Factories;
+
+use Illuminate\Support\Str;
+use Modules\Accounts\Entities\Account;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class PrintingPressFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     */
+    protected $model = \Modules\Accounts\Entities\PrintingPress::class;
+
+    /**
+     * Define the model's default state.
+     */
+    public function definition(): array
+    {
+        return [
+            'name' => 'Printing press',
+            'email' => $this->faker->unique()->safeEmail,
+            'phone' => $this->faker->unique()->phoneNumber,
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+            'status' => Account::APPROVED_STATUS
+        ];
+    }
+}
+
